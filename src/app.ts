@@ -59,6 +59,8 @@ export async function initPage({ requireAuth = false } = {}): Promise<User | nul
     }
   } catch (error) {
     console.error(error);
+    // Show this once the page has rendered, e.g. an expired confirmation or reset link
+    setTimeout(() => toast("That link is invalid or has expired. Please log in or request a new one."), 0);
   }
 
   const user = await getUser();
