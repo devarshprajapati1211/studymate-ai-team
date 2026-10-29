@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flashcards — StudyMate AI</title>
+    <meta name="description" content="StudyMate AI — an AI-powered study planner with a tutor chatbot, quizzes, flashcards, sticky notes, to-dos and a Pomodoro timer." />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>" />
+  </head>
+  <body>
+    <main>
+      <div class="page-head"><span class="eyebrow">Quick revision</span><h1>Flashcards</h1><p>Enter a topic to get a deck of AI-made flashcards. Click a card to flip it.</p></div>
+      <form class="card row" id="flash-form" style="max-width: 760px">
+        <div class="grow"><label for="topic">Topic</label><input id="topic" maxlength="200" placeholder="E.g. Cell biology basics" required /></div>
+        <button class="btn" type="submit" id="generate">Make flashcards</button>
+      </form>
+      <div id="cards"></div>
+    </main>
+    <script type="module" src="/src/pages/flashcards.ts"></script>
+  </body>
+</html>

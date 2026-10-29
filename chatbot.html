@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Tutor — StudyMate AI</title>
+    <meta name="description" content="StudyMate AI — an AI-powered study planner with a tutor chatbot, quizzes, flashcards, sticky notes, to-dos and a Pomodoro timer." />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>" />
+  </head>
+  <body>
+    <main>
+      <div class="page-head"><span class="eyebrow">Doubt solver</span><h1>AI Tutor</h1><p>Ask any study question and get a clear, step-by-step explanation.</p></div>
+      <div class="card chat">
+        <div class="chat-log" id="log">
+          <div class="msg msg-model"><p>Hi! I&rsquo;m your StudyMate tutor. What would you like to understand today?</p>
+            <div class="suggestions">
+              <button class="chip">Explain Newton&rsquo;s third law</button>
+              <button class="chip">How does photosynthesis work?</button>
+              <button class="chip">What is a derivative in calculus?</button>
+            </div>
+          </div>
+        </div>
+        <form class="chat-form" id="chat-form">
+          <textarea id="question" rows="1" placeholder="Type your question… (Enter to send, Shift+Enter for a new line)" required></textarea>
+          <button class="btn" type="submit" id="send">Send</button>
+        </form>
+      </div>
+    </main>
+    <script type="module" src="/src/pages/chatbot.ts"></script>
+  </body>
+</html>

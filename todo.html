@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List — StudyMate AI</title>
+    <meta name="description" content="StudyMate AI — an AI-powered study planner with a tutor chatbot, quizzes, flashcards, sticky notes, to-dos and a Pomodoro timer." />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>" />
+  </head>
+  <body>
+    <main style="max-width: 760px">
+      <div class="page-head"><span class="eyebrow">Stay organised</span><h1>To-Do List</h1><p>Plan your study tasks and tick them off as you go.</p></div>
+      <div class="card">
+        <form class="row" id="todo-form">
+          <div class="grow"><label for="title" class="sr">New task</label><input id="title" maxlength="300" placeholder="E.g. Finish chapter 4 exercises" required /></div>
+          <button class="btn" type="submit">Add task</button>
+        </form>
+        <div style="margin-top: 1.5rem"><span class="muted" id="progress-label">Loading…</span><div class="progress"><div id="progress" style="width: 0"></div></div></div>
+        <ul class="todo-list" id="todos"></ul>
+      </div>
+    </main>
+    <script type="module" src="/src/pages/todo.ts"></script>
+  </body>
+</html>

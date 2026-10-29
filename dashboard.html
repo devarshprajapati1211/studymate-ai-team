@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard — StudyMate AI</title>
+    <meta name="description" content="StudyMate AI — an AI-powered study planner with a tutor chatbot, quizzes, flashcards, sticky notes, to-dos and a Pomodoro timer." />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>" />
+  </head>
+  <body>
+    <main>
+      <div class="greeting">
+        <div><span class="eyebrow" id="today"></span><h1>Hi, <span class="mark" id="name">there</span> 👋</h1></div>
+        <a class="btn" href="/chatbot">Ask the AI tutor</a>
+      </div>
+      <div class="stats">
+        <div class="card stat"><strong id="stat-open">–</strong><span>tasks to do</span></div>
+        <div class="card stat"><strong id="stat-done">–</strong><span>tasks completed</span></div>
+        <div class="card stat"><strong id="stat-notes">–</strong><span>sticky notes</span></div>
+      </div>
+      <h2>Your tools</h2>
+      <div class="feature-grid">
+        <a class="card feature" href="/chatbot"><span class="icon bg-coral">🤖</span><h3>AI Tutor</h3><p>Clear up any doubt in seconds.</p></a>
+        <a class="card feature" href="/quiz"><span class="icon bg-yellow">❓</span><h3>Quiz Generator</h3><p>Test yourself on any topic.</p></a>
+        <a class="card feature" href="/flashcards"><span class="icon bg-blue">🃏</span><h3>Flashcards</h3><p>Flip-card revision made by AI.</p></a>
+        <a class="card feature" href="/notes"><span class="icon bg-pink">📝</span><h3>Sticky Notes</h3><p>Capture key points fast.</p></a>
+        <a class="card feature" href="/todo"><span class="icon bg-green">✅</span><h3>To-Do List</h3><p>Plan and track your tasks.</p></a>
+        <a class="card feature" href="/pomodoro"><span class="icon bg-coral">⏳</span><h3>Pomodoro</h3><p>Focus sprints with breaks.</p></a>
+      </div>
+    </main>
+    <script type="module" src="/src/pages/dashboard.ts"></script>
+  </body>
+</html>

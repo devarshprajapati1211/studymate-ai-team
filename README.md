@@ -10,8 +10,7 @@
 - Member 2: MANUS PATEL
 - MEMBER 3 : PARTH CHAVDA
 ### Hosted Project Link
-[[StudyMate - AI]
-](https://studymate-ai.onrender.com/)
+[StudyMate - AI](https://studymate-a.netlify.app/)
 ### Project Description
 StudyMate - AI is an intelligent study planner designed to enhance learning efficiency. It includes features like sticky notes, a to-do list, a quiz generator, a Pomodoro timer, and an AI chatbot for doubt-solving. With AI-powered assistance, it helps students stay organized and improve productivity.
 
@@ -29,85 +28,48 @@ Students face challenges in organizing their study schedules, tracking tasks, an
 
 ## Technical Details
 ### Technologies/Components Used
-Here’s the list of software, libraries, and tools used in your project:
 
- **Software:**
-- **Frontend:** HTML, CSS, JavaScript
-- **Backend:** Flask
-- **Database:** SQLite
+- **Frontend:** HTML, CSS and TypeScript, bundled with [Vite](https://vite.dev)
+- **Backend:** Netlify Functions (serverless API under `/api/*`)
+- **Database:** Netlify Database (managed Postgres) with Drizzle ORM — stores sticky notes and to-dos
+- **Authentication:** Netlify Identity (`@netlify/identity`) — sign-up, login, email confirmation and password reset
+- **AI:** Google Gemini (`gemini-3.8-flash`) via Netlify AI Gateway — powers the tutor chatbot, quiz generator and flashcards. No API key is needed; Netlify provides it automatically.
+- **Hosting:** Netlify
 
- **Libraries Used:**
-- **Flask:** For creating the web application
-- **Flask-CORS:** To handle cross-origin requests
-- **SQLite3:** For managing user authentication and storing notes
-- **Werkzeug.security:** For hashing and verifying passwords
-- **Google Generative AI (Gemini API):** For AI-powered quiz generation, doubt-solving, and flashcard generation
-- **dotenv:** For managing environment variables securely
-- **re (Regex):** For parsing AI-generated quiz responses
-- **jsonify & flash:** For handling API responses and displaying messages
+### Project Structure
 
- **Tools Used:**
-- **Postman:** For API testing
-- **VS Code / PyCharm:** For development
-- **Git & GitHub:** For version control
-- **Google Gemini API:** For AI-powered features
+```
+*.html                 One HTML file per page (home, login, register, dashboard, chatbot, quiz, flashcards, notes, todo, pomodoro)
+src/app.ts             Shared header, auth handling and API helper
+src/pages/*.ts         Page logic
+src/style.css          Styles
+netlify/functions/     API: notes.mts, todos.mts, ai.mts
+db/schema.ts           Database tables (Drizzle)
+netlify/database/migrations/   Generated SQL migrations (applied automatically on deploy)
+```
 
+### Running locally
 
+```bash
+npm install
+npx netlify dev
+```
 
+This starts the site with local emulation of Functions, Identity, the database and AI Gateway.
 
-### Implementation
-### **Software Requirements**  
+### Changing the database
 
-#### **Installation Steps**  
+Edit `db/schema.ts`, then generate a migration:
 
-1. **Install Python and Virtual Environment**  
-   - Update system packages and install Python:  
-     ```bash
-     sudo apt update && sudo apt install python3 python3-venv python3-pip -y
-     ```  
+```bash
+npx drizzle-kit generate --name describe_your_change
+```
 
-2. **Set Up Virtual Environment**  
-   - Create a virtual environment:  
-     ```bash
-     python3 -m venv venv
-     ```  
-   - Activate the virtual environment:  
-     ```bash
-     source venv/bin/activate   # On Windows: venv\Scripts\activate
-     ```  
+Netlify applies new migrations automatically on the next deploy.
 
-3. **Install Required Python Libraries**  
-   - Install Flask and CORS:  
-     ```bash
-     pip install flask flask-cors
-     ```  
-   - Install LangChain and Gemini AI API:  
-     ```bash
-     pip install langchain google-generativeai
-     ```  
+### Deploying
 
-4. **Frontend Setup (If Required)**  
-   - Install dependencies using Node.js:  
-     ```bash
-     npm install
-     ```  
-
-5. **Run the Backend Server**  
-   - Start the Flask application:  
-     ```bash
-     python app.py
-     ```  
-
-6. **Run the Frontend**  
-   - Start the frontend using a live server:  
-     ```bash
-     npx live-server  
-     ```  
-  
-
-
-# Run
-python app.py
+Push to the `main` branch — Netlify builds (`npm run build`) and publishes the `dist` folder automatically.
 
 ### Project Documentation
 For Software:

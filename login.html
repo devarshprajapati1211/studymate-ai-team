@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log in — StudyMate AI</title>
+    <meta name="description" content="StudyMate AI — an AI-powered study planner with a tutor chatbot, quizzes, flashcards, sticky notes, to-dos and a Pomodoro timer." />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>" />
+  </head>
+  <body>
+    <main class="auth-wrap">
+      <div class="card auth-card">
+        <span class="eyebrow">Welcome back</span>
+        <h1 id="title">Log in</h1>
+        <div id="alert"></div>
+        <form id="login-form">
+          <div class="field"><label for="email">Email</label><input id="email" type="email" autocomplete="email" required /></div>
+          <div class="field"><label for="password">Password</label><input id="password" type="password" autocomplete="current-password" required /></div>
+          <button class="btn" type="submit">Log in</button>
+          <p class="auth-foot"><button class="link-btn" type="button" id="forgot">Forgot password?</button></p>
+        </form>
+        <form id="reset-form" hidden>
+          <div class="field"><label for="new-password">New password</label><input id="new-password" type="password" autocomplete="new-password" minlength="8" required /></div>
+          <button class="btn" type="submit">Save new password</button>
+        </form>
+        <p class="auth-foot">New to StudyMate? <a href="/register">Create an account</a></p>
+      </div>
+    </main>
+    <script type="module" src="/src/pages/login.ts"></script>
+  </body>
+</html>

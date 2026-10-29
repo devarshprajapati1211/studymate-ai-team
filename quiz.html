@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Generator — StudyMate AI</title>
+    <meta name="description" content="StudyMate AI — an AI-powered study planner with a tutor chatbot, quizzes, flashcards, sticky notes, to-dos and a Pomodoro timer." />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>" />
+  </head>
+  <body>
+    <main style="max-width: 860px">
+      <div class="page-head"><span class="eyebrow">Test yourself</span><h1>Quiz Generator</h1><p>Pick a topic and difficulty, and the AI builds a multiple-choice quiz for you.</p></div>
+      <form class="card row" id="quiz-form">
+        <div class="grow"><label for="topic">Topic</label><input id="topic" maxlength="200" placeholder="E.g. The French Revolution" required /></div>
+        <div><label for="difficulty">Difficulty</label><select id="difficulty"><option value="easy">Easy</option><option value="medium" selected>Medium</option><option value="hard">Hard</option></select></div>
+        <div style="width: 110px"><label for="count">Questions</label><input id="count" type="number" min="1" max="15" value="5" /></div>
+        <button class="btn" type="submit" id="generate">Generate quiz</button>
+      </form>
+      <div id="quiz"></div>
+    </main>
+    <script type="module" src="/src/pages/quiz.ts"></script>
+  </body>
+</html>
