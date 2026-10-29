@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sticky Notes — StudyMate AI</title>
+    <meta name="description" content="StudyMate AI — an AI-powered study planner with a tutor chatbot, quizzes, flashcards, sticky notes, to-dos and a Pomodoro timer." />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>" />
+  </head>
+  <body>
+    <main>
+      <div class="page-head"><span class="eyebrow">Quick capture</span><h1>Sticky Notes</h1><p>Jot down key points, formulas and reminders. Notes are saved to your account.</p></div>
+      <form class="card" id="note-form">
+        <div class="field"><label for="note">New note</label><textarea id="note" maxlength="2000" placeholder="E.g. Mitochondria = powerhouse of the cell" required></textarea></div>
+        <div class="row" style="justify-content: space-between; align-items: center">
+          <div class="swatches" role="group" aria-label="Note colour">
+            <button type="button" class="swatch bg-yellow" data-color="yellow" aria-pressed="true" aria-label="Yellow"></button>
+            <button type="button" class="swatch bg-pink" data-color="pink" aria-pressed="false" aria-label="Pink"></button>
+            <button type="button" class="swatch bg-blue" data-color="blue" aria-pressed="false" aria-label="Blue"></button>
+            <button type="button" class="swatch bg-green" data-color="green" aria-pressed="false" aria-label="Green"></button>
+          </div>
+          <button class="btn" type="submit">Add note</button>
+        </div>
+      </form>
+      <div style="margin-top: 2.5rem" id="notes"><p class="muted">Loading notes…</p></div>
+    </main>
+    <script type="module" src="/src/pages/notes.ts"></script>
+  </body>
+</html>

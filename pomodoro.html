@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pomodoro Timer — StudyMate AI</title>
+    <meta name="description" content="StudyMate AI — an AI-powered study planner with a tutor chatbot, quizzes, flashcards, sticky notes, to-dos and a Pomodoro timer." />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>" />
+  </head>
+  <body>
+    <main>
+      <div class="pomo">
+        <span class="eyebrow">Deep focus</span>
+        <h1>Pomodoro Timer</h1>
+        <p class="muted">Work for 25 minutes, then take a short break. Every 4 sessions, take a longer one.</p>
+        <div class="modes" role="group" aria-label="Timer mode">
+          <button data-mode="focus" aria-pressed="true">Focus</button>
+          <button data-mode="short" aria-pressed="false">Short break</button>
+          <button data-mode="long" aria-pressed="false">Long break</button>
+        </div>
+        <div class="dial">
+          <svg viewBox="0 0 200 200" aria-hidden="true">
+            <circle cx="100" cy="100" r="88" fill="var(--card)" stroke="var(--ink)" stroke-width="3" />
+            <circle id="ring" cx="100" cy="100" r="88" fill="none" stroke="var(--coral)" stroke-width="10" stroke-linecap="round" />
+          </svg>
+          <div class="dial-time" id="time" aria-live="polite">25:00</div>
+          <div class="dial-label" id="label">Focus</div>
+        </div>
+        <div class="pomo-actions">
+          <button class="btn" id="start">Start</button>
+          <button class="btn btn-ghost" id="reset">Reset</button>
+        </div>
+        <div class="sessions" id="sessions" aria-label="Completed focus sessions"></div>
+      </div>
+    </main>
+    <script type="module" src="/src/pages/pomodoro.ts"></script>
+  </body>
+</html>

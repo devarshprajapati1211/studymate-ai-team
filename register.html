@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create account — StudyMate AI</title>
+    <meta name="description" content="StudyMate AI — an AI-powered study planner with a tutor chatbot, quizzes, flashcards, sticky notes, to-dos and a Pomodoro timer." />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>" />
+  </head>
+  <body>
+    <main class="auth-wrap">
+      <div class="card auth-card">
+        <span class="eyebrow">Get started</span>
+        <h1>Create your account</h1>
+        <div id="alert"></div>
+        <form id="register-form">
+          <div class="field"><label for="name">Name</label><input id="name" autocomplete="name" required /></div>
+          <div class="field"><label for="email">Email</label><input id="email" type="email" autocomplete="email" required /></div>
+          <div class="field"><label for="password">Password</label><input id="password" type="password" autocomplete="new-password" minlength="8" required /><small class="muted">At least 8 characters.</small></div>
+          <button class="btn" type="submit">Create account</button>
+        </form>
+        <p class="auth-foot">Already have an account? <a href="/login">Log in</a></p>
+      </div>
+    </main>
+    <script type="module" src="/src/pages/register.ts"></script>
+  </body>
+</html>
