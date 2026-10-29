@@ -1,4 +1,4 @@
-import { AuthError, MissingIdentityError, signup } from "@netlify/identity";
+import { AuthError, MissingIdentityError, login } from "@netlify/identity";
 import { initPage } from "../app";
 
 const alertBox = document.querySelector<HTMLDivElement>("#alert")!;
@@ -20,20 +20,33 @@ form.addEventListener("submit", async (e) => {
   const value = (id: string) => document.querySelector<HTMLInputElement>(id)!.value.trim();
   button.disabled = true;
   try {
-    const user = await signup(value("#email"), document.querySelector<HTMLInputElement>("#password")!.value, {
-      full_name: value("#name"),
+    const password = document.querySelector<HTMLInputElement>("#password")!.value;
+    // Accounts are created server-side already confirmed, so the student is logged in right away
+    const res = await fetch("/api/account/signup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name: value("#name"), email: value("#email"), password }),
     });
-    if (user.confirmedAt) {
-      location.href = "/dashboard";
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) {
+      showAlert(data.error || "Something went wrong. Please try again.");
+      button.disabled = false;
       return;
     }
-    form.hidden = true;
-    showAlert("Registration successful! Check your email and click the confirmation link to log in.", "success");
+    await login(value("#email"), password);
+    location.href = "/dashboard";
   } catch (error) {
+    // Browser-side errors carry GoTrue's message but no HTTP status, so match on the text
+    const msg = error instanceof AuthError ? error.message : "";
     if (error instanceof MissingIdentityError) showAlert("Sign-up isn't available yet. Please try again shortly.");
-    else if (error instanceof AuthError && error.status === 400) showAlert("This email is already registered.");
-    else if (error instanceof AuthError && error.status === 403) showAlert("Sign-ups are currently closed.");
-    else if (error instanceof AuthError) showAlert(error.message);
+    else if (/already (been )?registered|already exists/i.test(msg))
+      showAlert("This email is already registered. Try logging in instead.");
+    else if (error instanceof AuthError && (error.status === 403 || /not allowed|signups? (are )?disabled/i.test(msg)))
+      showAlert("Sign-ups are currently closed.");
+    else if (/password/i.test(msg)) showAlert("Please choose a stronger password (at least 8 characters).");
+    else if (/email/i.test(msg)) showAlert("Please enter a valid email address.");
+    else if (/fetch|network|timed out/i.test(msg)) showAlert("Can't reach the sign-up service. Check your connection and try again.");
+    else if (error instanceof AuthError) showAlert(msg);
     else showAlert("Something went wrong. Please try again.");
     button.disabled = false;
   }
