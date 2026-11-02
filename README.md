@@ -12,6 +12,10 @@
 ### Hosted Project Link
 [[StudyMate - AI]
 ](https://studymate-ai.onrender.com/)
+
+Studymate-ai updated :- https://quiz-focus-study-buddy.lovable.app
+
+
 ### Project Description
 StudyMate - AI is an intelligent study planner designed to enhance learning efficiency. It includes features like sticky notes, a to-do list, a quiz generator, a Pomodoro timer, and an AI chatbot for doubt-solving. With AI-powered assistance, it helps students stay organized and improve productivity.
 
